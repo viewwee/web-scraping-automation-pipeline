@@ -445,10 +445,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
-- Portfolio: [your-portfolio.com](https://your-portfolio.com)
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Upwork: [Your Upwork Profile](https://upwork.com/yourprofile)
+**Saif Ur Rehman**
+- GitHub: https://github.com/saifrehman100
+- Upwork: https://www.upwork.com/freelancers/~01479c16e91e12c008
 
 ## 🤝 Contributing
 
@@ -461,8 +460,8 @@ If this project helped you land a client or inspired your work, please give it a
 ## 📧 Contact
 
 For questions or collaboration opportunities:
-- Email: your.email@example.com
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
+- Email: saif.rehman2498@gmail.com
+- LinkedIn: www.linkedin.com/in/saif-ur-rehman-1913a7212
 
 ---
 
